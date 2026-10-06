@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Kijk meerdere Twitch- en YouTube-livestreams tegelijk in één dashboard.">
+<title>Stream Dashboard</title>
+<script src="https://player.twitch.tv/js/embed/v1.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <h1>Stream Dashboard</h1>
+    <span class="watermark" title="Gemaakt door jefta078">Discord: <b>jefta078</b></span>
+  </div>
+  <button id="toggleSide">☰ Streamers</button>
+  <label>Kolommen
+    <select id="cols"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select>
+  </label>
+  <label><input type="checkbox" id="chat"> Chat bij grote streams</label>
+  <span id="count" class="warn"></span>
+  <span class="legend" id="legend">
+    <span><i class="livedot on"></i><span id="livecount">live-status laden…</span></span>
+  </span>
+  <span class="spacer"></span>
+  <button id="selLive" style="border-color:var(--live)">● Alle live openen</button>
+  <button id="muteAll">🔇 Alles dempen</button>
+  <button id="playAll" class="primary">▶ Alles afspelen</button>
+  <button id="pauseAll">⏸ Alles pauzeren</button>
+  <button id="preset">Favorieten laden</button>
+  <button id="saveFav">★ Opslaan als favorieten</button>
+  <button id="clear">Wall leegmaken</button>
+</header>
+<main>
+  <aside id="side">
+    <div class="filters">
+      <input id="q" placeholder="Zoek streamer…" autocomplete="off">
+      <div class="chips" id="chips">
+        <span class="chip on" data-d="all">Alle</span>
+        <span class="chip" data-d="live">● Live</span>
+        <span class="chip" data-d="sel">Geselecteerd</span>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button id="selVisible" style="flex:1">+ Zichtbare</button>
+        <button id="unselVisible" style="flex:1">− Zichtbare</button>
+      </div>
+    </div>
+    <div id="list"></div>
+  </aside>
+  <button id="sideHandle" title="Streamer-lijst in- of uitklappen">«</button>
+  <div id="wall"></div>
+</main>
+
+<script src="loader.js"></script>
+</body>
+</html>
